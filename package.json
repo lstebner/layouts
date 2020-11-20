@@ -1,0 +1,17 @@
+{
+  "dependencies": {
+    "chalk": "^4.1.0",
+    "yargs": "^16.1.1"
+  },
+  "name": "layouts",
+  "version": "0.0.0",
+  "description": "scripts and stuff to help easily manage multiple custom keyboard layouts",
+  "main": "layouts.js",
+  "repository": "https://github.com/lstebner/layouts.git",
+  "author": "Luke Stebner <luke.stebner@gmail.com>",
+  "license": "MIT",
+  "scripts": {
+    "layout": "node layout.js",
+    "boardlist": "node layout.js --boardlist"
+  }
+}
