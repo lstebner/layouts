@@ -3,6 +3,7 @@ const chalk = require("chalk")
 const { hideBin } = require('yargs/helpers')
 const argv = yargs(hideBin(process.argv)).argv
 const keyboardsConfig = require("./keyboards")
+const keyboardLayouts = require("./layouts")
 
 const { layouts, keyboards } = keyboardsConfig
 
@@ -136,6 +137,14 @@ if (argv.boardlist) {
   }
 
   console.log(LINE_BREAK + outputString)
+
+  return
+} else if (argv.keymap) {
+  const keyboard = argv.k
+  const layout = keyboardLayouts[keyboard]
+
+  console.log(layout.board.keymap(layout))
+
 
   return
 }

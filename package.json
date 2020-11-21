@@ -11,7 +11,8 @@
   "author": "Luke Stebner <luke.stebner@gmail.com>",
   "license": "MIT",
   "scripts": {
-    "layout": "node layout.js",
+    "keymap": "node layout.js --keymap -k",
+    "layout": "node layout.js -k",
     "boardlist": "node layout.js --boardlist"
   }
 }
