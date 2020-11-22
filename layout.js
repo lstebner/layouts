@@ -4,6 +4,7 @@ const { hideBin } = require('yargs/helpers')
 const argv = yargs(hideBin(process.argv)).argv
 const keyboardsConfig = require("./keyboards")
 const keyboardLayouts = require("./layouts")
+const keymap = require("./keymap")
 
 const { layouts, keyboards } = keyboardsConfig
 
@@ -143,8 +144,7 @@ if (argv.boardlist) {
   const keyboard = argv.k
   const layout = keyboardLayouts[keyboard]
 
-  console.log(layout.board.keymap(layout))
-
+  console.log(keymap(layout))
 
   return
 }
