@@ -8,7 +8,7 @@ const roadkit = {
   layouts: {
     ortho: {
       method: "ortho_4x4",
-      layers: [
+      rows: [
         [100, 100, 100, 100],
         [100, 100, 100, 100],
         [100, 100, 100, 100],

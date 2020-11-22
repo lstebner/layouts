@@ -1,9 +1,9 @@
 const keymap = (config) => {
-  const { layout, layers } = config
+  const { layout, rows } = config
   let rendered = ""
 
-  for (let idx in layers) {
-    let keys = layers[idx]
+  for (let idx in rows) {
+    let keys = rows[idx]
 
     // this formatting looks weird, but needs to be like this
     rendered += `[${idx}] = LAYOUT_${layout.method}(
