@@ -29,6 +29,7 @@ const keysConfig = {
   e: "KC_E",
   enter: "KC_ENT",
   equal: "KC_EQL",
+  esc: "KC_ESC",
   exclamation: "KC_EXLM",
   f10: "KC_F10",
   f11: "KC_F11",
@@ -43,7 +44,7 @@ const keysConfig = {
   f8: "KC_F8",
   f9: "KC_F9",
   f: "KC_F",
-  fn: "FN",
+  fn: { value: "FN", defineAs: "MO(_FN)" },
   g: "KC_G",
   grave: "KC_GRAVE",
   h: "KC_H",
@@ -76,10 +77,10 @@ const keysConfig = {
   lcurlybrace: "KC_LCBR",
   left: "KC_LEFT", 
   lgui: "KC_LGUI",
-  lower: "LOWER",
+  lower: { value: "LOWER", defineAs: "MO(_LOWER)" },
   lparen: "KC_LPRN",
   lshift: "KC_LSFT",
-  lt_esc: "LT(_ALT, KC_ESC)",
+  lt_esc: { value: "LT_ESC", defineAs: "LT(_ALT, KC_ESC)" },
   m: "KC_M",
   minus: "KC_MINUS",
   n: "KC_N",
@@ -92,7 +93,7 @@ const keysConfig = {
   q: "KC_Q",
   quote: "KC_QUOT",
   r: "KC_R",
-  raise: "RAISE",
+  raise: { value: "RAISE", defineAs: "MO(_RAISE)" },
   rbracket: "KC_RBRC",
   rcurlybrace: "KC_RCBR",
   reset: "RESET",
@@ -132,7 +133,7 @@ for (let id in keysConfig) {
   if (typeof keysConfig[id] === "string") {
     keys[id] = { value: keysConfig[id] }
   } else {
-    keys[id] = keysConfig
+    keys[id] = keysConfig[id]
   }
 }
 
