@@ -1,14 +1,16 @@
 const keymap = (config) => {
-  const { layout, rows } = config
+  const { layout, layers } = config
   let rendered = ""
 
-  for (let idx in rows) {
-    let keys = rows[idx]
+  for (let layerIdx in layers) {
+    let keys = []
+    for (let row of layers[layerIdx]) {
+      keys.push(row.map((k) => k.value).join(", "))
+    }
 
-    // this formatting looks weird, but needs to be like this
-    rendered += `[${idx}] = LAYOUT_${layout.method}(
-    ${keys.join(", ")}
-),`
+    rendered += `[${layerIdx}] = LAYOUT_${layout.method}(
+      ${keys.join(",\n      ")}
+    ),`
   }
 
   return `#include QMK_KEYBOARD_H

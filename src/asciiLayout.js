@@ -8,7 +8,6 @@ const SPACE = " "
 const TICK = "•"
 const UNDER = "-"
 
-
 const asciiHeading = (label) => {
   let heading = SPACE
 

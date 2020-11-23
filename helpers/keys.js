@@ -1,14 +1,14 @@
-module.exports = {
-  "0": "KC_0",
-  "1": "KC_1",
-  "2": "KC_2",
-  "3": "KC_3",
-  "4": "KC_4",
-  "5": "KC_5",
-  "6": "KC_6",
-  "7": "KC_7",
-  "8": "KC_8",
-  "9": "KC_9",
+const keysConfig = {
+  "0": { value: "KC_0", alias: ["num0"]},
+  "1": { value: "KC_1", alias: ["num1"]},
+  "2": { value: "KC_2", alias: ["num2"]},
+  "3": { value: "KC_3", alias: ["num3"]},
+  "4": { value: "KC_4", alias: ["num4"]},
+  "5": { value: "KC_5", alias: ["num5"]},
+  "6": { value: "KC_6", alias: ["num6"]},
+  "7": { value: "KC_7", alias: ["num7"]},
+  "8": { value: "KC_8", alias: ["num8"]},
+  "9": { value: "KC_9", alias: ["num9"]},
   "___": "_______",
   a: "KC_A",
   ampersand: "KC_AMPR",
@@ -84,16 +84,6 @@ module.exports = {
   minus: "KC_MINUS",
   n: "KC_N",
   next: "KC_MNXT", 
-  num0: "KC_0",
-  num1: "KC_1",
-  num2: "KC_2",
-  num3: "KC_3",
-  num4: "KC_4",
-  num5: "KC_5",
-  num6: "KC_6",
-  num7: "KC_7",
-  num8: "KC_8",
-  num9: "KC_9",
   o: "KC_O",
   p: "KC_P",
   percent: "KC_PERC",
@@ -126,3 +116,24 @@ module.exports = {
   xxx: "XXXXXXX",
   z: "KC_Z",
 }
+
+let keys = {}
+
+for (let id in keysConfig) {
+  if (keysConfig[id].alias) {
+    if (!Array.isArray(keysConfig[id].alias)) return console.log(`error processing alias for key "${keysConfig[id]}". the 'alias' property should be an array`)
+
+    keysConfig[id].alias.forEach((alias) => {
+      if (keys[alias]) return console.error(`tried to create key alias ${alias} but there is already a key defined with this name`)
+      keys[alias] = keysConfig[id]
+    })
+  } 
+
+  if (typeof keysConfig[id] === "string") {
+    keys[id] = { value: keysConfig[id] }
+  } else {
+    keys[id] = keysConfig
+  }
+}
+
+module.exports = keys
