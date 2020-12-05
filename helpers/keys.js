@@ -115,26 +115,33 @@ const keysConfig = {
   w: "KC_W",
   x: "KC_X",
   xxx: "XXXXXXX",
+  y: "KC_Y",
   z: "KC_Z",
 }
 
 let keys = {}
 
+// loop over the above config to set up consistent schema for each key and also
+// expose them to global namespace for convenience
 for (let id in keysConfig) {
+  if (typeof keysConfig[id] === "string") {
+    keys[id] = { value: keysConfig[id] }
+  } else {
+    keys[id] = keysConfig[id]
+  }
+
+  global[id] = keys[id]
+
   if (keysConfig[id].alias) {
     if (!Array.isArray(keysConfig[id].alias)) return console.log(`error processing alias for key "${keysConfig[id]}". the 'alias' property should be an array`)
 
     keysConfig[id].alias.forEach((alias) => {
       if (keys[alias]) return console.error(`tried to create key alias ${alias} but there is already a key defined with this name`)
       keys[alias] = keysConfig[id]
+
+      global[alias] = keysConfig[id]
     })
   } 
-
-  if (typeof keysConfig[id] === "string") {
-    keys[id] = { value: keysConfig[id] }
-  } else {
-    keys[id] = keysConfig[id]
-  }
 }
 
 module.exports = keys
