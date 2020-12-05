@@ -23,7 +23,6 @@ const keymap = (config) => {
     layerId++
   }
 
-  console.log("L>>>", customKeys)
   for (let key of customKeys) {
     renderedDefines += `#define ${key.value} ${key.defineAs}\n`
   }

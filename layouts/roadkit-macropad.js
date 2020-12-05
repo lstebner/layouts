@@ -1,8 +1,5 @@
 const keys = require("../helpers/keys")
 const roadkit = require("../keyboards/roadkit")
-const keymap = require("../keymap")
-
-const X = keys.xxx
 
 const layer1 = [
   [keys.num7, keys.num8, keys.num9, keys.kp_plus],
@@ -12,10 +9,10 @@ const layer1 = [
 ]
 
 const layer2 = [
-  [keys.esc, X, X, keys.kp_asterisk],
-  [X, X, X, keys.kp_slash],
-  [X, X, X, X],
-  [X, X, X, X],
+  [keys.esc, keys.xxx, keys.xxx, keys.kp_asterisk],
+  [keys.xxx, keys.xxx, keys.xxx, keys.kp_slash],
+  [keys.xxx, keys.xxx, keys.xxx, keys.xxx],
+  [keys.xxx, keys.xxx, keys.xxx, keys.xxx],
 ]
 
 const layers = {
