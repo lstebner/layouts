@@ -1,5 +1,6 @@
 const keys = require("../helpers/keys")
 const roadkit = require("../keyboards/roadkit")
+const { x2, x3, x4 } = require("./groups/blanks")
 
 const layers = {}
 
@@ -11,10 +12,10 @@ layers[0] = [
 ]
 
 layers._RAISE = [
-  [esc, xxx, xxx, kp_asterisk],
-  [xxx, xxx, xxx, kp_slash],
-  [xxx, xxx, xxx, xxx],
-  [xxx, xxx, xxx, xxx],
+  [esc, ...x2, kp_asterisk],
+  [...x3, kp_slash],
+  x4,
+  x4,
 ]
 
 module.exports = {
