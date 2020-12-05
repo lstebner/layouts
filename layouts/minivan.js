@@ -1,41 +1,51 @@
 const keys = require("../helpers/keys")
 const minivan = require("../keyboards/minivan")
 
+const {
+  alpha: {
+    qwer, asdf, zxcv, numrow, numrow_alts,
+  },
+  blanks: {
+    x2, x3, x4, x6, x9, x10, x12,
+    _3, _4, _5, _6, _7, _8,
+  },
+} = require("./groups")
+
 const layers = {}
 
 layers._QWERTY = [
-  [tab, q, w, e, r, t, y, u, i, o, p, backspace],
-  [lt_esc, a, s, d, f, g, h, j, k, l, semicolon, quote],
-  [lshift, z, x, c, v, b, n, m, comma, dot, slash, minus],
+  [tab, ...qwer, backspace],
+  [lt_esc, ...asdf, semicolon, quote],
+  [lshift, ...zxcv, comma, dot, slash, minus],
   [lctrl, lalt, fn, lgui, raise, space, lower, rshift, grave, enter],
 ]
 
 layers._RAISE = [
-  [tilde, num1, num2, num3, num4, num5, num6, num7, num8, num9, num0, backspace],
-  [___, f1, f2, f3, f4, f5, f6, xxx, xxx, xxx, xxx, backslash],
-  [___, f7, f8, f9, f10, f11, f12, xxx, xxx, xxx, xxx, ___],
-  [___, ___, ___, ___, ___, lshift, next, vold, volu, play],
+  [tilde, ...numrow, backspace],
+  [___, f1, f2, f3, f4, f5, f6, ...x4, backslash],
+  [___, f7, f8, f9, f10, f11, f12, ...x4, ___],
+  [..._5, lshift, next, vold, volu, play],
 ]
 
 layers._LOWER = [
-  [tilde, exclamation, at, hash, dollar, percent, caret, ampersand, asterisk, lparen, rparen, backspace],
-  [del, ___, ___, ___, ___, ___, ___, xxx, xxx, lcurlybrace, rcurlybrace, pipe],
-  [___, xxx, xxx, xxx, xxx, xxx, xxx, xxx, xxx, xxx, xxx, ___],
-  [___, ___, ___, ___, xxx, xxx, xxx, xxx, xxx, xxx],
+  [tilde, ...numrow_alts, backspace],
+  [del, ..._6, ...x2, lcurlybrace, rcurlybrace, pipe],
+  [___, ...x10, ___],
+  [..._4, ...x6],
 ]
 
 layers._ALT = [
-  [___, ___, ___, ___, ___, ___, ___, ___, up, lcurlybrace, rcurlybrace, equal],
-  [___, ___, ___, ___, ___, ___, ___, left, down, right, xxx, grave],
-  [___, ___, ___, caps, ___, ___, ___, ___, ___, ___, ___, backslash],
-  [___, ___, ___, ___, ___, ___, ___, ___, vold, volu],
+  [..._8, up, lcurlybrace, rcurlybrace, equal],
+  [..._7, left, down, right, xxx, grave],
+  [..._3, caps, ..._7, backslash],
+  [..._8, vold, volu],
 ]
 
 layers._FN = [
-  [xxx, xxx, xxx, xxx, xxx, xxx, xxx, xxx, xxx, xxx, xxx, xxx],
-  [xxx, xxx, xxx, xxx, xxx, xxx, xxx, xxx, xxx, xxx, xxx, xxx],
-  [xxx, xxx, xxx, xxx, xxx, xxx, xxx, xxx, xxx, xxx, xxx, xxx],
-  [xxx, xxx, xxx, xxx, xxx, xxx, xxx, xxx, xxx, reset],
+  x12,
+  x12,
+  x12,
+  [...x9, reset],
 ]
 
 module.exports = {
