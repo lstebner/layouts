@@ -42,7 +42,7 @@ Currently known keyboards as of 2020/11/19. see `keyboards.js` for most up to da
 - `roadkit`: 16 key macropad
 - `sixty`: dz60/satan60 compatible layout for standard 60% boards
 
-The above list can be generated using `yarn boardlist --describe`
+The above list can be generated using `yarn boardlist`
 
 ## features
 
