@@ -47,7 +47,7 @@ const _boardList = ({ describe }) => {
   p(LINE_BREAK + outputString)
 }
 
-const _asciiLayout = () => {
+const _asciiLayout = ({ k }) => {
   const ALL = "all"
   const argKeyboard = k || ALL
   let outputBoards = []
@@ -71,7 +71,7 @@ const _asciiLayout = () => {
   }
 }
 
-const _keymap = () => {
+const _keymap = ({ k }) => {
   const keyboard = k
   const layout = keyboardLayouts[keyboard]
 
