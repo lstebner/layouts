@@ -59,3 +59,64 @@ Use a comma-separated list to see more than one layout at a time.
 Pass "all" as the keyboard to see all layouts.
 
 `yarn layout all`
+
+### QMK keymap file
+
+To generate a QMK compatible keymap use the `keymap` command. Similiar to other commands, you must tell this which layout you want to generate a keymap for, and then it will do the work.
+
+The keymap contents will simply be output in the terminal at the moment, but an option to save to file will be added eventually.
+
+#### layouts
+
+Available layouts are defined in the 'layouts/' directory. Each file in here must be valid javascript, and must ultimately export a configuration in the form of:
+
+```javascript
+module.exports = {
+  board,
+  layout,
+  layers,
+}
+```
+
+- `board`: This must be a *keyboard* object. `require` the keyboard this layout is for from the `keyboards/` dir, and use that as the value here.
+- `layout`: If the board offers more than just a default layout, specify which one to use for this layout here. 
+- `layers`: The configuration of all the keys for the keymap. See below for more info on how to create this.
+
+##### layers
+
+`layers` are the actual keyboard layout. This can be specified as either an object, or an array, depending on if you want to name the layers or not. You only need to specify an empty object in order to be able to generate a valid keymap, but you can have as many layers as you want; there is no limitations built into this codebase, but your keyboard will have its own limitations.
+
+Each layer must specify *rows* of *keys*. Keys are defined into global namespace for convenience, but still need to be required. Each row must be an array of string values for the keys in that row. You could use static strings if you wanted to, or create local variables to your layer for custom keys, but it is recommended to use the globals for the added benefit of automatic error handling for misspelled, or missing keys.
+
+example row for a numpad:
+
+```javascript
+[num7, num8, num9, kp_plus]
+```
+
+example layer for a numpad:
+
+```javascript
+const layer0 = [
+  [num7, num8, num9, kp_minus],
+  [num4, num5, num6, kp_plus],
+  [num1, num2, num3, kp_equal],
+  [kp_0, ___, kp_dot, kp_equal],
+]
+```
+
+example of layers as array:
+
+```
+layers: [layer0]
+```
+
+example of named layers:
+
+```
+layers: {
+  _DEFAULT: layer0,
+}
+```
+
+for examples of it all coming together check out the `layouts/` directory.
