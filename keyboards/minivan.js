@@ -4,11 +4,10 @@ const minivan = {
     size: 40,
     maker: "thevankeyboards",
     description: "compact 40% board",
-    layout_method: "arrow_command",
   },
   layouts: {
     default: {
-      method: "",
+      method: "arrow_command",
       rows: [
         [100, 100, 100, 100, 100, 100, 100, 100, 100, 100, 100, 175],
         [125, 100, 100, 100, 100, 100, 100, 100, 100, 100, 100, 150],
