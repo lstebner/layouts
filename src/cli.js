@@ -6,7 +6,7 @@ const ensureDirectory = require("./helpers/ensureDirectory")
 
 const keyboardsConfig = require("../keyboards")
 const keyboardLayouts = require("../layouts")
-const keymap = require("../keymap")
+const keymap = require("./keymap")
 const asciiLayout = require("./asciiLayout")
 
 const { layouts, keyboards } = keyboardsConfig
