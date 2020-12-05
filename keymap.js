@@ -1,8 +1,17 @@
 const keymap = (config) => {
-  const { layout, layers } = config
+  const { board, layers } = config
+  let layout = config.layout
   let renderedLayers = "", renderedDefines = ""
   let customKeys = []
   let layerId = 0
+
+  const TAB = "  "
+
+  if (!layout) {
+    layout = board.layouts.default
+
+    if (!layout) return new Error("specified board in keymap has no layout!")
+  }
 
   for (let layerIdx in layers) {
     let keys = []
@@ -16,15 +25,23 @@ const keymap = (config) => {
       customKeys.push(...row.filter((k) => k && k.defineAs))
     }
 
-    renderedLayers += `[${layerIdx}] = LAYOUT_${layout.method}(
-      ${keys.join(",\n      ")}
+    renderedLayers += `\n${TAB}[${layerIdx}] = LAYOUT_${layout.method}(
+      ${keys.join(`,\n${TAB}${TAB}`)}
     ),`
 
     layerId++
   }
 
-  for (let key of customKeys) {
-    renderedDefines += `#define ${key.value} ${key.defineAs}\n`
+  if (customKeys.length) {
+    if (renderedDefines.length) {
+      renderedDefines = `// define layers\n${renderedDefines}`
+    }
+
+    renderedDefines += "\n// define custom keys\n"
+
+    for (let key of customKeys) {
+      renderedDefines += `#define ${key.value} ${key.defineAs}\n`
+    }
   }
 
   return `#include QMK_KEYBOARD_H
