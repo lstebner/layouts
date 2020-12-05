@@ -115,6 +115,7 @@ const keysConfig = {
   w: "KC_W",
   x: "KC_X",
   xxx: "XXXXXXX",
+  y: "KC_Y",
   z: "KC_Z",
 }
 
