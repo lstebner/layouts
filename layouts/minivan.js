@@ -3,7 +3,7 @@ const minivan = require("../keyboards/minivan")
 
 const {
   alpha: {
-    qwer, asdf, zxcv, numrow, numrow_alts,
+    numrow, numrow_alts,
   },
   blanks: {
     x2, x3, x4, x6, x9, x10, x12,
@@ -14,9 +14,9 @@ const {
 const layers = {}
 
 layers._QWERTY = [
-  [tab, ...qwer, backspace],
-  [lt_esc, ...asdf, semicolon, quote],
-  [lshift, ...zxcv, comma, dot, slash, minus],
+  [tab, q, w, e, r, t, y, u, i, o, p, backspace],
+  [lt_esc, a, s, d, f, g, h, j, k, l, semicolon, quote],
+  [lshift, z, x, c, v, b, n, m, comma, dot, slash, minus],
   [lctrl, lalt, fn, lgui, raise, space, lower, rshift, grave, enter],
 ]
 
