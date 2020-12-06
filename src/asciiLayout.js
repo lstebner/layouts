@@ -9,6 +9,8 @@ const TICK = "•"
 const UNDER = "-"
 
 const asciiHeading = (label) => {
+  return label + LINE_BREAK
+
   let heading = SPACE
 
   for (let i = 0; i < label.length + 3; i++) {

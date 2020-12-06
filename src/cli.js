@@ -14,6 +14,7 @@ const { layouts, keyboards } = keyboardsConfig
 const LINE_BREAK = "\n"
 const COLON = ":"
 const SPACE = " "
+const ASCII_PLACEHOLDER = "<--ascii-->"
 
 const p = console.log
 const err = (msg) => p(chalk.red("ooops, something went wrong:\n" + msg))
@@ -82,18 +83,24 @@ const _keymap = ({
   print = true,
   save = false,
   saveDir = "./build/keymaps",
-  safe = false
+  safe = false,
+  showAsciiLayout = true,
 }) => {
   const keyboard = k
   const layout = keyboardLayouts[keyboard]
   const filename = saveAs || `${layout.board.metadata.name}.keymap.c`
   let fullPath = path.resolve(saveDir, filename)
+  let asciiRendering = ""
   let keymapData
 
   if (!keyboard) return err(`-k arg is required to know which keymap to generate`)
   if (!layout) return err(`could not locate a keymap definition for "${keyboard}"`)
 
-  keymapData = keymap(layout)
+  if (showAsciiLayout && showAsciiLayout !== "false") {
+    asciiRendering = "/*\n" + asciiLayout(layout.board) + "*/"
+  }
+
+  keymapData = keymap(layout).replace(ASCII_PLACEHOLDER, asciiRendering)
 
   if (print && print !== "false") {
     p(keymapData)
