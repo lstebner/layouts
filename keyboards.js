@@ -1,4 +1,4 @@
-const CANDYBAR_SOUTHPAW = "candybar_southpaw"
+const CANDYBAR = "candybar"
 const MINIVAN = "minivan"
 const PLANCK = "planck"
 const PREONIC = "preonic"
@@ -7,7 +7,7 @@ const ROADKIT = "roadkit"
 const SIXTY = "sixty"
 
 const LAYOUTS = {
-  [CANDYBAR_SOUTHPAW]: CANDYBAR_SOUTHPAW,
+  [CANDYBAR]: CANDYBAR,
   [MINIVAN]: MINIVAN,
   [PLANCK]: PLANCK,
   [PREONIC]: PREONIC,
@@ -16,7 +16,7 @@ const LAYOUTS = {
   [SIXTY]: SIXTY,
 }
 
-const candybar_southpaw = require("./keyboards/candybar_southpaw")
+const candybar = require("./keyboards/candybar")
 const minivan = require("./keyboards/minivan")
 const planck = require("./keyboards/planck")
 const preonic = require("./keyboards/preonic")
@@ -28,7 +28,7 @@ const sixty = require("./keyboards/sixty")
 module.exports = {
   layouts: LAYOUTS,
   keyboards: {
-    [CANDYBAR_SOUTHPAW]: candybar_southpaw,
+    [CANDYBAR]: candybar,
     [MINIVAN]: minivan,
     [PLANCK]: planck,
     [PREONIC]: preonic,

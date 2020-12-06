@@ -1,15 +1,14 @@
-const candybar_southpaw = {
+const candybar = {
   metadata: {
-    name: "Candybar Southpaw",
+    name: "Candybar",
     size: 50,
     maker: "",
-    description: "40% keyboard with a macropad on the left",
+    description: "40% keyboard with a macropad. available in lefty and righty variants",
   },
   layouts: {
-    default: {
-      method: "",
+    lefty: {
       rows: [
-        [100, 100, 100, 100, 100, 100, 100, 100, 100, 100, 100, 100, 100, 100, 100, 200],
+        [100, 100, 100, 100, 100, 100, 100, 100, 100, 100, 100, 100, 100, 100, 100, 100, 100],
         [100, 100, 100, 100, 125, 100, 100, 100, 100, 100, 100, 100, 100, 100, 100, 175],
         [100, 100, 100, 100, 175, 100, 100, 100, 100, 100, 100, 100, 100, 100, 100, 125],
         [100, 100, 100, 100, 125, 125, 125, 275, 225, 125, 100, 100, 100],
@@ -18,4 +17,4 @@ const candybar_southpaw = {
   }
 }
 
-module.exports = candybar_southpaw
+module.exports = candybar

@@ -50,6 +50,7 @@ const keysConfig = {
   h: "KC_H",
   hash: "KC_HASH",
   i: "KC_I",
+  insert: "KC_INS",
   j: "KC_J",
   k: "KC_K",
   kp_0: "KC_KP_0",

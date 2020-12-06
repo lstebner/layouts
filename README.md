@@ -34,7 +34,7 @@ To add data about a new keyboard, it is simplest to copy an existing one, and th
 
 Currently known keyboards as of 2020/11/19. see `keyboards.js` for most up to date list, this is a manually maintained list. When running a command, use these values for the `keyboard` arg.
 
-- `candybar_southpaw`: 40% keyboard with a macropad on the left
+- `candybar`: 40% keyboard with a macropad. available in lefty and righty variants
 - `minivan`: compact 40% board
 - `planck`: compact ortho board
 - `preonic`: 50% ortho board
