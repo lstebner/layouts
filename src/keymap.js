@@ -1,6 +1,7 @@
 const keymap = (config) => {
   const { board, layers } = config
   let layout = config.layout
+  let layoutMethod = "LAYOUT"
   let renderedLayers = "", renderedDefines = ""
   let customKeys = []
   let layerId = 0
@@ -11,6 +12,10 @@ const keymap = (config) => {
     layout = board.layouts.default
 
     if (!layout) return new Error("specified board in keymap has no layout!")
+  }
+
+  if (layout.method) {
+    layoutMethod = `LAYOUT_${layout.method}`
   }
 
   for (let layerIdx in layers) {
@@ -25,7 +30,7 @@ const keymap = (config) => {
       customKeys.push(...row.filter((k) => k && k.defineAs))
     }
 
-    renderedLayers += `\n${TAB}[${layerIdx}] = LAYOUT_${layout.method}(
+    renderedLayers += `\n${TAB}[${layerIdx}] = ${layoutMethod}(
       ${keys.join(`,\n${TAB}${TAB}`)}
     ),`
 
