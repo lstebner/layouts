@@ -1,5 +1,5 @@
 const keys = require("../helpers/keys")
-const candybar_southpaw = require("../keyboards/candybar_southpaw")
+const candybar = require("../keyboards/candybar")
 
 const {
   alpha: {
@@ -41,6 +41,7 @@ layers._FN = [
 ]
 
 module.exports = {
-  board: candybar_southpaw,
+  board: candybar,
+  layout: candybar.layouts.lefty,
   layers,
 }
