@@ -14,19 +14,19 @@
  */
 
 const keysConfig = {
-  "0": { value: "KC_0", alias: ["num0"]},
-  "1": { value: "KC_1", alias: ["num1"]},
-  "2": { value: "KC_2", alias: ["num2"]},
-  "3": { value: "KC_3", alias: ["num3"]},
-  "4": { value: "KC_4", alias: ["num4"]},
-  "5": { value: "KC_5", alias: ["num5"]},
-  "6": { value: "KC_6", alias: ["num6"]},
-  "7": { value: "KC_7", alias: ["num7"]},
-  "8": { value: "KC_8", alias: ["num8"]},
-  "9": { value: "KC_9", alias: ["num9"]},
-  "___": "_______",
+  0: { value: "KC_0", alias: ["num0"] },
+  1: { value: "KC_1", alias: ["num1"] },
+  2: { value: "KC_2", alias: ["num2"] },
+  3: { value: "KC_3", alias: ["num3"] },
+  4: { value: "KC_4", alias: ["num4"] },
+  5: { value: "KC_5", alias: ["num5"] },
+  6: { value: "KC_6", alias: ["num6"] },
+  7: { value: "KC_7", alias: ["num7"] },
+  8: { value: "KC_8", alias: ["num8"] },
+  9: { value: "KC_9", alias: ["num9"] },
+  ___: "_______",
   a: "KC_A",
-  ampersand: { value: "KC_AMPR", alias: ["ampr"] } ,
+  ampersand: { value: "KC_AMPR", alias: ["ampr"] },
   asterisk: { value: "KC_ASTR", alias: ["astr"] },
   at: "KC_AT",
   b: "KC_B",
@@ -40,7 +40,7 @@ const keysConfig = {
   del: "KC_DEL",
   dollar: { value: "KC_DLR", alias: ["dlr"] },
   dot: "KC_DOT",
-  down: "KC_DOWN",  
+  down: "KC_DOWN",
   e: "KC_E",
   enter: { value: "KC_ENT", alias: ["ent"] },
   equal: { value: "KC_EQL", alias: ["eql"] },
@@ -91,7 +91,7 @@ const keysConfig = {
   lbracket: { value: "KC_LBRC", alias: ["lbrc"] },
   lctrl: { value: "KC_LCTL", alias: ["lctl"] },
   lcurlybrace: { value: "KC_LCBR", alias: ["lcbr"] },
-  left: "KC_LEFT", 
+  left: "KC_LEFT",
   lgui: "KC_LGUI",
   lower: { value: "LOWER", defineAs: "MO(_LOWER)" },
   lparen: { value: "KC_LPRN", alias: ["lprn"] },
@@ -126,8 +126,8 @@ const keysConfig = {
   u: "KC_U",
   up: "KC_UP",
   v: "KC_V",
-  vold: "KC_VOLD", 
-  volu: "KC_VOLU", 
+  vold: "KC_VOLD",
+  volu: "KC_VOLU",
   w: "KC_W",
   x: "KC_X",
   xxx: "XXXXXXX",
@@ -149,15 +149,23 @@ for (let id in keysConfig) {
   global[id] = keys[id]
 
   if (keysConfig[id].alias) {
-    if (!Array.isArray(keysConfig[id].alias)) return console.log(`error processing alias for key "${keysConfig[id]}". the 'alias' property should be an array`)
+    if (!Array.isArray(keysConfig[id].alias)) {
+      console.log(
+        `error processing alias for key "${keysConfig[id]}". the 'alias' property should be an array`
+      )
+      break
+    }
 
     keysConfig[id].alias.forEach((alias) => {
-      if (keys[alias]) return console.error(`tried to create key alias ${alias} but there is already a key defined with this name`)
+      if (keys[alias])
+        return console.error(
+          `tried to create key alias ${alias} but there is already a key defined with this name`
+        )
       keys[alias] = keysConfig[id]
 
       global[alias] = keysConfig[id]
     })
-  } 
+  }
 }
 
 module.exports = keys

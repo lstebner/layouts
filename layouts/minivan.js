@@ -2,13 +2,8 @@ const keys = require("../helpers/keys")
 const minivan = require("../keyboards/minivan")
 
 const {
-  alpha: {
-    numrow, numrow_alts,
-  },
-  blanks: {
-    x2, x3, x4, x6, x9, x10, x12,
-    _3, _4, _5, _6, _7, _8,
-  },
+  alpha: { numrow, numrow_alts },
+  blanks: { x3, x4, x6, x9, x10, x12, _3, _4, _5, _6, _7, _8 },
 } = require("./groups")
 
 const layers = {}
@@ -29,7 +24,7 @@ layers._RAISE = [
 
 layers._LOWER = [
   [tilde, ...numrow_alts, backspace],
-  [del, ..._6, ...x2, lcurlybrace, rcurlybrace, pipe],
+  [del, ..._6, xxx, xxx, lcurlybrace, rcurlybrace, pipe],
   [___, ...x10, ___],
   [..._4, ...x6],
 ]
@@ -41,12 +36,7 @@ layers._ALT = [
   [..._8, vold, volu],
 ]
 
-layers._FN = [
-  x12,
-  x12,
-  x12,
-  [...x9, reset],
-]
+layers._FN = [x12, x12, x12, [...x9, reset]]
 
 module.exports = {
   board: minivan,

@@ -4,7 +4,7 @@ let blanks = {}
 let amount = 17
 let xKey, _Key
 
-for (let i = 1; i <= amount; i++) {
+for (let i = 2; i <= amount; i++) {
   xKey = `x${i}`
   _Key = `_${i}`
 
