@@ -30,7 +30,7 @@ layers._LOWER = [
 ]
 
 layers._ALT = [
-  [..._8, up, lcurlybrace, rcurlybrace, equal],
+  [..._8, up, lbracket, rbracket, equal],
   [..._7, left, down, right, xxx, grave],
   [..._3, caps, ..._7, backslash],
   [..._8, vold, volu],
