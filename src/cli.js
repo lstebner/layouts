@@ -4,12 +4,10 @@ const path = require("path")
 
 const ensureDirectory = require("./helpers/ensureDirectory")
 
-const keyboardsConfig = require("../keyboards")
-const keyboardLayouts = require("../layouts")
+const keyboards = require("../keyboards")
+const layouts = require("../layouts")
 const keymap = require("./keymap")
 const asciiLayout = require("./asciiLayout")
-
-const { layouts, keyboards } = keyboardsConfig
 
 const LINE_BREAK = "\n"
 const COLON = ":"
@@ -87,7 +85,7 @@ const _keymap = ({
   showAsciiLayout = true,
 }) => {
   const keyboard = k
-  const layout = keyboardLayouts[keyboard]
+  const layout = layouts[keyboard]
   const filename = saveAs || `${layout.board.metadata.name}.keymap.c`
   let fullPath = path.resolve(saveDir, filename)
   let asciiRendering = ""
