@@ -6,4 +6,5 @@ module.exports = {
   prime_e: require("./prime_e"),
   roadkit: require("./roadkit"),
   sixty: require("./sixty"),
+  tofu65: require("./tofu65"),
 }

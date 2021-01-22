@@ -16,7 +16,7 @@ const sixty = {
         [125, 125, 125, 625, 125, 125, 125, 125],
       ],
     },
-  }
+  },
 }
 
 module.exports = sixty
