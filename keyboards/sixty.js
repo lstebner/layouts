@@ -1,6 +1,6 @@
 const sixty = {
   metadata: {
-    name: "Generic Sixty",
+    name: "Sixty",
     size: 60,
     maker: "",
     description: "dz60/satan60 compatible layout for standard 60% boards",

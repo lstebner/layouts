@@ -3,4 +3,5 @@ module.exports = {
   minivan: require("./minivan"),
   prime_e: require("./prime_e"),
   roadkit_macropad: require("./roadkit-macropad"),
+  sixty: require("./sixty"),
 }
